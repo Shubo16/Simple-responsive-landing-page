@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.google.com/specimen/League+Spartan">
+  <title>Frontend Mentor | Room homepage</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mobile">
+    <header>
+      <nav class="navbar">
+        <div class="navbar-mobile ">
+          <div class="navbar-hamburger" onclick="toggleMenu()">
+            <!-- Hamburger menu icon -->
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </div>
+          <img src="/images/logo.svg" alt="Room" class="logo">
+        </div>
+        <!-- Menu items -->
+        <div class="menu">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- CONTAINER FOR IMAGE CAROUSEL -->
+    <section class="slider-wrapper">
+      <div class="slider-btns">
+        <button class="slide-arrow" id="slide-arrow-prev">
+          <svg width="15" height="28" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 0L1 12l12 12" stroke="#FFF" fill="none" fill-rule="evenodd" />
+          </svg>
+        </button>
+
+        <button class="slide-arrow" id="slide-arrow-next">
+          <svg width="15" height="28" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 0l12 12L1 24" stroke="#FFF" fill="none" fill-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+
+      <ul class="slides-container" id="slides-container">
+        <li class="slide"><img src="/images/mobile-image-hero-1.jpg"></li>
+        <li class="slide"><img src="/images/mobile-image-hero-2.jpg"></li>
+        <li class="slide"><img src="/images/mobile-image-hero-3.jpg"></li>
+      </ul>
+    </section>
+
+    <section class="hero mobile">
+      <div class="hero-title">
+        <h1> Discover innovative ways to decorate</h1>
+      </div>
+      <div class="hero-text">
+        <p>We provide unmatched quality, comfort, and style for property owners across the country.
+          Our experts combine form and function in bringing your vision to life. Create a room in your
+          own style with our collection and make your property a reflection of you and what you love.</p>
+      </div>
+      <div class="hero-link">
+        <a href="#">
+          <p>SHOP NOW</p>
+          <img src="images/icon-arrow.svg" alt="Click Link To Shop">
+        </a>
+      </div>
+    </section>
+
+    <main class="furniture">
+      <img src="/images/image-about-dark.jpg" alt="">
+      <div class="furniture-container">
+        <div class="furniture-title">
+          <h2> About our furniture</h2>
+        </div>
+        <div class="furniture-text">
+          <p>Our multifunctional collection blends design and function to suit your individual taste.
+            Make each room unique, or pick a cohesive theme that best express your interests and what
+            inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+            or anything in between. Product specialists are available to help you create your dream space.
+          </p>
+        </div>
+      </div>
+      <img src="images/image-about-light.jpg" alt="">
+    </main>
+  </div>
+
+  <!-- DESKTOP VERSION -->
+
+  <div class="desktop">
+
+    <section class="top-container">
+      <div class="top-left">
+        <header>
+          <img src="/images/logo.svg" alt="Room" class="logo">
+          <nav class="navbar">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </nav>
+        </header>
+        <div id="slider">
+          <div class="slide active"><img src='/images/desktop-image-hero-1.jpg' alt="hero-image" class="slide-images"></div>
+          <div class="slide"><img src='/images/desktop-image-hero-2.jpg' alt="hero-image" class="slide-images"></div>
+          <div class="slide"><img src='/images/desktop-image-hero-3.jpg' alt="hero-image" class="slide-images"></div>
+        </div>
+      </div>
+
+      <div class="top-right">
+        <div class="desktop-hero-info">
+          <div class="desktop-hero-title">
+            <h2> Discover innovative ways to decorate</h2>
+          </div>
+          <div class="desktop-hero-text">
+            <p>We provide unmatched quality, comfort, and style for property owners across the country.
+              Our experts combine form and function in bringing your vision to life. Create a room in your
+              own style with our collection and make your property a reflection of you and what you love.</p>
+          </div>
+        </div>
+        <div class="desktop-hero-link">
+          <a href="#">
+            <p>SHOP NOW</p>
+            <img src="images/icon-arrow.svg" alt="Click Link To Shop">
+          </a>
+        </div>
+        <div class="slider-btns dt">
+          <button class="slide-arrow" id="slide-arrow-prevDT">
+            <svg width="15" height="25" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 0L1 12l12 12" stroke="#FFF" fill="none" fill-rule="evenodd" />
+            </svg>
+          </button>
+          <button class="slide-arrow" id="slide-arrow-nextDT">
+            <svg width="15" height="25" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 0l12 12L1 24" stroke="#FFF" fill="none" fill-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="bottom-container">
+      <img src="images/image-about-dark.jpg" class="bottom-left">
+      <div class="bottom-mid">
+        <div class="bottom-info">
+          <div class="mid-title">
+            <h2>About our furniture</h2>
+          </div>
+          <div class="mid-text">
+            <p>Our multifunctional collection blends design and function to suit your individual taste.
+              Make each room unique, or pick a cohesive theme that best express your interests and what
+              inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+              or anything in between. Product specialists are available to help you create your dream space.</p>
+          </div>
+        </div>
+        <footer class="footer-dk">
+          <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+            Coded by <a href="https://github.com/Shubo16">Shubo Kobir</a>.
+          </div>
+        </footer>
+      </div>
+      <img src="images/image-about-light.jpg" class="bottom-right">
+
+    </section>
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- FOOTER SECTION -->
+  <footer class="footer-mobile">
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/Shubo16">Shubo Kobir</a>.
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+
+</html>

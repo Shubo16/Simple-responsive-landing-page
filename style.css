@@ -1,0 +1,485 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --primary-c: hsl(0, 0%, 0%);
+  --text-c: hsl(0, 0%, 63%);
+  --trim-c: hsl(0, 0%, 27%);
+  --nav-c: hsl(0, 0%, 100%);
+  --mobile-nav-c: hsl(0, 0%, 0%, 50%);
+  --font-size: 12px;
+}
+
+body {
+  font-family: "League Spartan", sans-serif;
+}
+
+@media (min-width: 375px) and (max-width: 1000px) {
+  .desktop {
+    display: none;
+  }
+
+  header {
+    width: 100svw;
+    height: auto;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+  }
+
+  .logo {
+    margin: 0 auto; /* Center the logo horizontally */
+  }
+
+  .navbar-mobile {
+    width: 100%;
+    top: 5%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .navbar-mobile > img {
+    align-items: center;
+    display: flex;
+    height: 1rem;
+  }
+  .navbar-hamburger {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translatex(1rem);
+    z-index: 5;
+  }
+
+  .hamburger-line {
+    width: 100%;
+    height: 3px;
+    background-color: #000; /* Adjust color as needed */
+  }
+  .hidden {
+    display: none;
+  }
+  .menu {
+    display: none;
+  }
+
+  .menu li {
+    list-style: none;
+    text-decoration: none;
+    color: var(--nav-c);
+    font-size: 2rem;
+  }
+
+  .menu a {
+    list-style: none;
+    text-decoration: none;
+    color: var(--nav-c);
+    margin-left: 1rem;
+  }
+
+  .menu {
+    position: fixed;
+    z-index: 4;
+    left: 0;
+    height: 10px; /* Align with the navbar */
+    width: 100%; /* Make the menu full width */
+  }
+
+  .menu.open {
+    display: flex; /* Display the menu as a flex container when open */
+    flex-direction: row; /* Arrange menu items horizontally */
+    position: fixed; /* Ensure the menu stays in the correct position */
+    width: 90%; /* Make the menu full width */
+    background-color: transparent; /* Add background color for better visibility */
+    z-index: 4; /* Ensure the menu appears above other content */
+    height: 10px;
+    left: 10%;
+    top: 5%;
+  }
+
+  .menu.open ul {
+    display: flex;
+    width: 100%;
+    margin-left: 2rem;
+    align-items: center;
+    justify-content: flex-start;
+    li {
+      font-size: 20px;
+      margin-inline: 5px;
+    }
+  }
+  .menu.open::after {
+    content: ""; /* Required for pseudo-elements */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%; /* Make it cover the entire viewport */
+    height: 100%; /* Make it cover the entire viewport */
+    z-index: 3;
+  }
+
+  .logo.hide {
+    display: none;
+  }
+
+  /* CAROUSEL SECTION */
+
+  .slider-wrapper {
+    position: relative;
+    height: 50svh;
+    width: 100svw;
+    z-index: 1;
+  }
+
+  .slider-wrapper > .slide-arrow,
+  .slides-container {
+    position: absolute;
+  }
+  .slides-container {
+    position: relative; /* Change to relative positioning */
+    z-index: 0; /* Ensure the slides container stays behind the buttons */
+    background-color: #ed2d40;
+    height: 100%; /* Adjust height to fill the slider wrapper */
+    width: 100%; /* Adjust width to fill the slider wrapper */
+    overflow: hidden; /* Hide overflow content */
+    display: flex;
+    scroll-snap-type: x mandatory; /* Enable horizontal scrolling */
+  }
+
+  .slides-container img {
+    height: 50svh;
+    width: 100svw;
+    scroll-snap-align: center;
+    object-fit: cover;
+  }
+
+  .slider-btns {
+    position: absolute;
+    z-index: 1;
+    bottom: 10px;
+    right: 15px;
+    background: transparent;
+  }
+
+  .slide-arrow {
+    border: none;
+    background: black;
+    width: 30px;
+    height: 30px;
+    color: var(--trim-c); /* Add text color */
+  }
+
+  button > svg {
+    margin-top: 10%;
+  }
+
+  /* HERO SECTION TEXT */
+  .hero.mobile {
+    z-index: 5;
+    position: relative;
+    padding: 2rem;
+    background: var(--nav-c);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+  }
+
+  .hero-title {
+    color: var(--primary-c);
+    font-weight: 800;
+  }
+
+  .hero-text {
+    color: var(--text-c);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-link {
+    color: var(--primary-c);
+    font-weight: 600;
+    width: 100%;
+    letter-spacing: 10px;
+    font-size: 0.9375rem;
+    margin-block: 0.625rem;
+  }
+  .hero-link > a {
+    display: flex;
+    font-weight: 500;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 20px;
+    color: var(--primary-c);
+    text-decoration: none;
+  }
+
+  .hero-link:hover {
+    animation: grow 1s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+    transition: ease-in-out;
+  }
+
+  @keyframes grow {
+    0% {
+      opacity: 0;
+      transform: scale(0.5, 0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+
+  /* MAIN SECTION */
+
+  .furniture {
+    background: var(--nav-c);
+  }
+
+  .furniture.mobile {
+    position: absolute;
+    background: var(--nav-c);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .furniture-container {
+    padding: 2rem;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .furniture-title {
+    font-weight: 800;
+  }
+
+  .furniture-text {
+    font-weight: 500;
+    color: var(--text-c);
+  }
+  .furniture > img {
+    width: 100svw;
+    height: auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  .mobile {
+    display: none;
+    overflow: none;
+  }
+  .desktop {
+    display: grid;
+    grid-template-rows: 60svh 40svh;
+    width: 100svw;
+    height: 100svh;
+  }
+
+  .top-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    width: 100svw;
+    overflow: hidden;
+  }
+  /* left hand container */
+  .top-left {
+    position: relative; /* Ensure proper positioning */
+  }
+
+  .top-left > header {
+    position: absolute; /* Position the header absolutely */
+    top: 10%; /* Align the header to the top */
+    left: 0; /* Align the header to the left */
+    z-index: 1; /* Set a higher z-index to keep the header above the carousel */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .top-left ul {
+    display: flex;
+    list-style: none;
+    margin-right: 1.5rem;
+  }
+
+  .top-left ul a {
+    text-decoration: none;
+    color: var(--nav-c);
+    margin-inline: 1rem;
+  }
+  /* SLIDE CAROUSEL */
+  #slider {
+    position: relative;
+    width: 100%;
+    height: 60svh; /* Adjust height as needed */
+    overflow: hidden;
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+    height: 60svh;
+  }
+
+  .slide.active {
+    display: block;
+  }
+
+  .slide-images {
+    width: 100%;
+    height: 100%;
+    background-position: top;
+    object-fit: cover;
+  }
+
+  /* TOP RIGHT CONTAINER AKA THE HERO  */
+  .top-right {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .desktop-hero-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding: 3rem;
+  }
+
+  .desktop-hero-title {
+    font-size: 2rem;
+  }
+  .desktop-hero-text {
+    color: var(--text-c);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.5rem;
+  }
+
+  .desktop-hero-link {
+    color: var(--primary-c);
+    font-weight: 600;
+    width: 100%;
+    letter-spacing: 10px;
+    font-size: 0.9375rem;
+    margin-block: 0.625rem;
+  }
+  .desktop-hero-link > a {
+    display: flex;
+    font-weight: 500;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 20px;
+    color: var(--primary-c);
+    text-decoration: none;
+  }
+
+  .desktop-hero-link:hover {
+    animation: grow 1s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+    transition: ease-in-out;
+  }
+  .slider-btns.dt {
+    position: fixed;
+    bottom: 40svh;
+    margin-left: -25px;
+  }
+
+  .slider-btns.dt > .slide-arrow {
+    height: 3rem;
+    width: 4rem;
+    background: black;
+    border: none;
+    gap: 0;
+  }
+
+  .slider-btns.dt > .slide-arrow:nth-child(2) {
+    margin-left: -0.35rem;
+  }
+
+  @keyframes grow {
+    0% {
+      opacity: 0;
+      transform: scale(0.5, 0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+  .bottom-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30vw 1fr 30vw; /* Changed units to vw */
+    height: auto;
+  }
+
+  .bottom-container > img {
+    height: 100%; /* Adjusted to 100% to fit the container */
+    width: 100%;
+    object-fit: cover;
+    object-position: center; /* Maintain aspect ratio */
+  }
+
+  .bottom-mid {
+    width: auto;
+    height: 40svh;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .bottom-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3rem;
+    margin-top: 10px;
+  }
+
+  .bottom-right {
+    width: auto; /* Adjusted width */
+  }
+
+  .mid-title {
+    width: auto;
+    color: var(--primary-c);
+    margin-bottom: 1rem;
+  }
+
+  .mid-title > h2 {
+    font-weight: 400;
+  }
+
+  .mid-text {
+    color: var(--text-c);
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    line-height: 1.5rem;
+  }
+
+  .footer-mobile {
+    display: none;
+  }
+
+  .footer-dk .attribution {
+    margin-bottom: 10px;
+  }
+}
